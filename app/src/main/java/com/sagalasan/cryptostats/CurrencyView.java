@@ -3,14 +3,21 @@ package com.sagalasan.cryptostats;
 import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.TextView;
 
 /**
  * Created by christiaan on 4/2/17.
  */
 
 public class CurrencyView extends CardView {
+
+    private View rootView;
+    private TextView currencyLabel;
+
     public CurrencyView(Context context) {
         super(context);
+        init(context);
     }
 
     public CurrencyView(Context context, AttributeSet attrs) {
@@ -19,5 +26,16 @@ public class CurrencyView extends CardView {
 
     public CurrencyView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    public CurrencyView setCurrency(Currency currency) {
+        currencyLabel.setText(currency.getLongName());
+        return this;
+    }
+
+    private void init(Context context) {
+        rootView = inflate(context, R.layout.currency_card_view, this);
+        currencyLabel = (TextView) rootView.findViewById(R.id.currency_label);
+
     }
 }
