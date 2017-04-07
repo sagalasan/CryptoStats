@@ -14,6 +14,7 @@ public class CurrencyView extends CardView {
 
     private View rootView;
     private TextView currencyLabel;
+    private TextView currencyPrice;
 
     public CurrencyView(Context context) {
         super(context);
@@ -33,9 +34,14 @@ public class CurrencyView extends CardView {
         return this;
     }
 
+    public void updatePrice(double price) {
+        currencyPrice.setText(String.valueOf(price));
+    }
+
     private void init(Context context) {
         rootView = inflate(context, R.layout.currency_card_view, this);
         currencyLabel = (TextView) rootView.findViewById(R.id.currency_label);
-
+        currencyPrice = (TextView) rootView.findViewById(R.id.currency_price);
     }
+
 }

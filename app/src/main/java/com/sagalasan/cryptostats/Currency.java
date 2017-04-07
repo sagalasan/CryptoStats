@@ -7,10 +7,13 @@ package com.sagalasan.cryptostats;
 public enum Currency {
     BTC("Bitcoin"),
     ETH("Ethereum"),
+    ETC("Ethereum Classic"),
+    ZEC("Zcash"),
     LTC("Litecoin"),
     XRP("Ripple"),
-    DASH("Dash"),
-    XMR("Monero");
+    DSH("Dash"),
+    XMR("Monero"),
+    USD("United States Dollar");
 
     private String longName;
 
