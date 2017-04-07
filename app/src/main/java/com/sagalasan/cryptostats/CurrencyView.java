@@ -6,6 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import java.util.Locale;
+
 /**
  * Created by christiaan on 4/2/17.
  */
@@ -35,7 +37,7 @@ public class CurrencyView extends CardView {
     }
 
     public void updatePrice(double price) {
-        currencyPrice.setText(String.valueOf(price));
+        currencyPrice.setText(String.format(Locale.US, "$%f", price));
     }
 
     private void init(Context context) {
