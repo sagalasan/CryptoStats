@@ -14,10 +14,15 @@ import java.util.Locale;
  */
 
 public class CurrencyView extends CardView {
+    private static final String UP_ARROW= "▲";
+    private static final String DOWN_ARROW = "▼";
 
     private View rootView;
     private TextView currencyLabel;
     private TextView currencyPrice;
+
+    private double currentPriceValue;
+    private boolean isPriceSet = false;
 
     public CurrencyView(Context context) {
         super(context);
@@ -38,7 +43,10 @@ public class CurrencyView extends CardView {
     }
 
     public void updatePrice(double price) {
-        currencyPrice.setText(String.format(Locale.US, "$%s", price));
+        String arrow = isPriceSet ? ((price < currentPriceValue) ? DOWN_ARROW : UP_ARROW) : "";
+        currencyPrice.setText(String.format(Locale.US, "$%s %s", price, arrow));
+        currentPriceValue = price;
+        isPriceSet = true;
     }
 
     private void init(Context context) {
