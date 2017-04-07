@@ -5,10 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.sagalasan.cryptostats.MainActivity"
-    android:id="@+id/main_grid"
-    android:paddingStart="4dp"
-    android:paddingEnd="0dp"
-    android:paddingTop="4dp"
-    android:paddingBottom="0dp">
+    android:id="@+id/main_grid">
 
 </android.widget.GridLayout>
