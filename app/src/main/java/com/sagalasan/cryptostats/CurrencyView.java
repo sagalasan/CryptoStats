@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.Locale;
 
 /**
@@ -37,7 +38,7 @@ public class CurrencyView extends CardView {
     }
 
     public void updatePrice(double price) {
-        currencyPrice.setText(String.format(Locale.US, "$%f", price));
+        currencyPrice.setText(String.format(Locale.US, "$%s", price));
     }
 
     private void init(Context context) {
