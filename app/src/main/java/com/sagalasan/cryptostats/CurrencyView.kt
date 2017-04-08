@@ -14,12 +14,14 @@ import java.util.Locale;
  */
 
 class CurrencyView(context: Context) : CardView(context) {
-    private val UP_ARROW = "▲"
-    private val DOWN_ARROW = "▼"
+    private val UP_ARROW = " ▲"
+    private val DOWN_ARROW = " ▼"
+    private var arrowUp = true
 
     private var view: View? = null
     private var currencyLabel: TextView? = null
     private var currencyPrice: TextView? = null
+    private var currencyArrow: TextView? = null
 
     private var currentPriceValue: Double = -1.0
     private var isPriceSet: Boolean = false
@@ -28,6 +30,7 @@ class CurrencyView(context: Context) : CardView(context) {
         view = inflate(context, R.layout.currency_card_view, this)
         currencyLabel = view?.findViewById(R.id.currency_label) as TextView
         currencyPrice = view?.findViewById(R.id.currency_price) as TextView
+        currencyArrow = view?.findViewById(R.id.currency_arrow) as TextView
     }
 
     fun setCurrency(currency: Currency) {
@@ -35,11 +38,15 @@ class CurrencyView(context: Context) : CardView(context) {
     }
 
     fun updatePrice(price: Double) {
-        val arrow = if (isPriceSet)
-            (if (price < currentPriceValue)  DOWN_ARROW else UP_ARROW) else ""
-        currencyPrice?.text = String.format(Locale.US, "$%s %s", price, arrow)
-
+        currencyPrice?.text = String.format(Locale.US, "$%s", price)
+        arrowUp = if (price == currentPriceValue) arrowUp else price > currentPriceValue
         currentPriceValue = price
         isPriceSet = true
+
+        updateArrow()
+    }
+
+    private fun updateArrow() {
+        currencyArrow?.text = if (arrowUp) UP_ARROW else DOWN_ARROW
     }
 }
