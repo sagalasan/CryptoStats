@@ -1,5 +1,8 @@
 package com.sagalasan.cryptostats;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by christiaan on 4/4/17.
  */
@@ -28,9 +31,9 @@ public enum CurrencyPair {
         return right;
     }
 
-    public static CurrencyPair[] getSix() {
+    public static List<CurrencyPair> getSix() {
         CurrencyPair[] pairs =  {BTCUSD, ETHUSD, LTCUSD, ZECUSD, DSHUSD, XMRUSD};
-        return pairs;
+        return Arrays.asList(pairs);
     }
 
     @Override

@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private var isPortrait: Boolean = true
 
-    private val pairs: Array<CurrencyPair> = CurrencyPair.getSix()
+    private val pairs: List<CurrencyPair> = CurrencyPair.getSix()
 
     private val eventBus = EventBus.getDefault()
 
